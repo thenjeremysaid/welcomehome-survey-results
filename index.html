@@ -68,6 +68,7 @@
   .stat-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto auto;
     gap: 20px;
     margin-top: -40px;
     position: relative;
@@ -77,11 +78,13 @@
   .stat {
     background: var(--card);
     border-radius: 6px;
-    padding: 24px 26px;
     box-shadow: 0 8px 24px rgba(0, 41, 66, 0.08);
     border-top: 4px solid var(--berry);
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+    padding: 24px 26px;
+    row-gap: 14px;
   }
   .stat .label {
     font-family: 'Montserrat', sans-serif;
@@ -89,10 +92,9 @@
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--gray-cool);
-    margin-bottom: 12px;
-    min-height: 2.6em;
-    display: flex;
-    align-items: flex-start;
+    line-height: 1.45;
+    align-self: start;
+    margin: 0;
   }
   .stat .value {
     font-family: 'Oswald', sans-serif;
@@ -100,12 +102,15 @@
     line-height: 1;
     color: var(--blue);
     font-weight: 500;
-    min-height: 42px;
     display: flex;
     align-items: baseline;
+    flex-wrap: wrap;
+    column-gap: 8px;
+    row-gap: 2px;
+    align-self: end;
   }
-  .stat .value .small { font-size: 14px; color: var(--gray-cool); margin-left: 8px; font-weight: 400; font-family: 'Source Sans 3', sans-serif; letter-spacing: 0.01em; }
-  .stat .note { font-size: 13px; color: var(--gray-cool); margin-top: auto; padding-top: 10px; }
+  .stat .value .small { font-size: 14px; color: var(--gray-cool); font-weight: 400; font-family: 'Source Sans 3', sans-serif; letter-spacing: 0.01em; }
+  .stat .note { font-size: 13px; color: var(--gray-cool); align-self: start; margin: 0; }
 
   section { margin-bottom: 56px; }
   section h2 {
